@@ -6,7 +6,7 @@
 /*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/27 23:45:05 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 17:32:01 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/24 01:27:54 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	apply_rarb(t_stack **stack_a, t_stack **stack_b, int c, char s)
 		while ((*stack_a)->n != c && index_after_pushing_to_b(*stack_b, c) > 0)
 			rr(stack_a, stack_b, 0);
 		while ((*stack_a)->n != c)
-		    ra(stack_a, 0);
+			ra(stack_a, 0);
 		while (index_after_pushing_to_b(*stack_b, c) > 0)
 			rb(stack_b, 0);
 		pb(stack_a, stack_b, 0);
@@ -83,8 +83,6 @@ int	apply_rrarb(t_stack **stack_a, t_stack **stack_b, int c, char s)
 	return (-1);
 }
 
-// This function rotate the stack_b in reverse direction,
-// the stack_a in oppsite direction of stack_a as required amount.
 int	apply_rarrb(t_stack **stack_a, t_stack **stack_b, int c, char s)
 {
 	if (s == 'a')

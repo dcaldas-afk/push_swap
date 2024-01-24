@@ -50,22 +50,22 @@ bool    is_argv_valid(char **argv)
     }
 }
 
-bool    is_duplicate(t_stack *stack_x)
+int	is_duplicate(t_stack *stack_x)
 {
-    t_stack *tmp;
+	t_stack	*tmp;
 
-    while (stack_x)
-    {
-        tmp = stack_x->next;
-        while (tmp)
-        {
-            if (stack_x->n == tmp->n)
-                return (true);
-            tmp = tmp->next;
-        }
-        stack_x = stack_x->next;
-    }
-    return (false);
+	while (stack_x)
+	{
+		tmp = stack_x->next;
+		while (tmp)
+		{
+			if (stack_x->n == tmp->n)
+				return (1);
+			tmp = tmp->next;
+		}
+		stack_x = stack_x->next;
+	}
+	return (0);
 }
 
 bool    is_sorted(t_stack *stack_x)

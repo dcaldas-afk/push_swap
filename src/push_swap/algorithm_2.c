@@ -6,52 +6,54 @@
 /*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:54:47 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 17:26:49 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/24 01:26:37 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
 
-int rarb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
+int	rarb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
 {
-    int i;
+	int	i;
 
-    i = index_after_pushing_to_a(stack_a, n);
-    if (i < retrieve_index(stack_b, n))
-        i = retrieve_index(stack_b, n);
-    return (i);
+	i = index_after_pushing_to_a(stack_a, n);
+	if (i < retrieve_index(stack_b, n))
+		i = retrieve_index(stack_b, n);
+	return (i);
 }
 
-int rrarrb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
+int	rrarrb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
 {
-    int i;
+	int	i;
+	int	a;
 
-    i = 0;
-    if (index_after_pushing_to_a(stack_a, n))
-        i = stack_size(stack_a) - index_after_pushing_to_a(stack_a, n);
-    if ((i < (stack_size(stack_b) - retrieve_index(stack_b, n))) && retrieve_index(stack_b, n))
-        i = stack_size(stack_b) - retrieve_index(stack_b, n);
-    return (i);
+	i = 0;
+	a = stack_size(stack_b) - retrieve_index(stack_b, n);
+	if (index_after_pushing_to_a(stack_a, n))
+		i = stack_size(stack_a) - index_after_pushing_to_a(stack_a, n);
+	if ((i < a) && retrieve_index(stack_b, n))
+		i = stack_size(stack_b) - retrieve_index(stack_b, n);
+	return (i);
 }
 
-int rrarb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
+int	rarrb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (retrieve_index(stack_b, n))
-        i = stack_size(stack_b) - retrieve_index(stack_b, n);
-    i = index_after_pushing_to_a(stack_a, n) + i;
-    return (i);
+	i = 0;
+	if (retrieve_index(stack_b, n))
+		i = stack_size(stack_b) - retrieve_index(stack_b, n);
+	i = index_after_pushing_to_a(stack_a, n) + i;
+	return (i);
 }
 
-int rarrb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
+int	rrarb_quantity_a(t_stack *stack_a, t_stack *stack_b, int n)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (index_after_pushing_to_a(stack_a, n))
-        i = stack_size(stack_a) - index_after_pushing_to_a(stack_a, n);
-    i = retrieve_index(stack_b, n) + i;
-    return (i);
+	i = 0;
+	if (index_after_pushing_to_a(stack_a, n))
+		i = stack_size(stack_a) - index_after_pushing_to_a(stack_a, n);
+	i = retrieve_index(stack_b, n) + i;
+	return (i);
 }

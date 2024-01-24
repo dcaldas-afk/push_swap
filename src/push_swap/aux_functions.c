@@ -20,7 +20,7 @@ void	ft_putstr(char *str)
 
 int	try_stack(t_stack *stack)
 {
-	if (!stack || !(stack->next))
+	if (!stack)
 		return (0);
 	return (1);
 }

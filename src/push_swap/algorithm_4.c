@@ -6,7 +6,7 @@
 /*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 01:40:36 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 17:34:23 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/24 01:28:15 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,6 @@ int	rotate_type_ba(t_stack *stack_a, t_stack *stack_b)
 	return (i);
 }
 
-// This function calculate and decides which rotation
-// combination is best to use to sort the stack. Of
-// course, after rotation there is always one push
-// operation is left to do which i embeded to code.
-// Function is used during push from A to B.
 int	rotate_type_ab(t_stack *stack_a, t_stack *stack_b)
 {
 	int		i;
@@ -49,13 +44,13 @@ int	rotate_type_ab(t_stack *stack_a, t_stack *stack_b)
 	while (tmp)
 	{
 		if (i > rarb_quantity_b(stack_a, stack_b, tmp->n))
-			i = rarb_quantity_a(stack_a, stack_b, tmp->n);
-		if (i > rrarrb_quantity_a(stack_a, stack_b, tmp->n))
-			i = rrarrb_quantity_a(stack_a, stack_b, tmp->n);
-		if (i > rarrb_quantity_a(stack_a, stack_b, tmp->n))
-			i = rarrb_quantity_a(stack_a, stack_b, tmp->n);
-		if (i > rrarb_quantity_a(stack_a, stack_b, tmp->n))
-			i = rrarb_quantity_a(stack_a, stack_b, tmp->n);
+			i = rarb_quantity_b(stack_a, stack_b, tmp->n);
+		if (i > rrarrb_quantity_b(stack_a, stack_b, tmp->n))
+			i = rrarrb_quantity_b(stack_a, stack_b, tmp->n);
+		if (i > rarrb_quantity_b(stack_a, stack_b, tmp->n))
+			i = rarrb_quantity_b(stack_a, stack_b, tmp->n);
+		if (i > rrarb_quantity_b(stack_a, stack_b, tmp->n))
+			i = rrarb_quantity_b(stack_a, stack_b, tmp->n);
 		tmp = tmp->next;
 	}
 	return (i);

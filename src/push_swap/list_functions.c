@@ -24,7 +24,7 @@ t_stack *create_stack(int arg)
     return (stack);
 }
 
-void    free_lst(char **lst)
+void    free_str(char **lst)
 {
     char    *n1;
 
@@ -55,47 +55,46 @@ int retrieve_index(t_stack *stack_x, int value)
     return (i);
 }
 
-int index_after_pushing_to_a(t_stack *stack_a, int n)
+int index_after_pushing_to_b(t_stack *stack_b, int num)
 {
     t_stack *tmp;
     int i;
 
     i = 1;
-    if (n > stack_a->n && n < last_element(stack_a)->n)
+    if (num > stack_b->n && num < last_element(stack_b)->n)
         i = 0;
-    else if (n > return_largest(stack_a) || n < return_smallest(stack_a))
-        i = retrieve_index(stack_a, return_largest(stack_a));
+    else if (num > return_largest(stack_b) || num < return_smallest(stack_b))
+        i = retrieve_index(stack_b, return_largest(stack_b));
     else
     {
-        tmp = stack_a->next;
-        while (stack_a->n < n || tmp->n > n)
+        tmp = stack_b->next;
+        while (stack_b->n < num || tmp->n > num)
         {
-            stack_a = stack_a->next;
-            tmp = stack_a->next;
+            stack_b = stack_b->next;
+            tmp = stack_b->next;
             i++;
         }
     }
     return (i);
 }
 
-int index_after_pushing_to_b(t_stack *stack_b, int n)
+int index_after_pushing_to_a(t_stack *stack_a, int num)
 {
     t_stack *tmp;
     int i;
 
     i = 1;
-    tmp = NULL;
-    if (n > stack_b->n && n < last_element(stack_b)->n)
+    if (num < stack_a->n && num > last_element(stack_a)->n)
         i = 0;
-    else if (n > return_largest(stack_b) || n < return_smallest(stack_b))
-        i = retrieve_index(stack_b, return_largest(stack_b));
+    else if (num > return_largest(stack_a) || num < return_smallest(stack_a))
+        i = retrieve_index(stack_a, return_smallest(stack_a));
     else
     {
-        tmp = stack_b->next;
-        while (stack_b->n < n || tmp->n > n)
+        tmp = stack_a->next;
+        while (stack_a->n > num || tmp->n < num)
         {
-            stack_b = stack_b->next;
-            tmp = stack_b->next;
+            stack_a = stack_a->next;
+            tmp = stack_a->next;
             i++;
         }
     }

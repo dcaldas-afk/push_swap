@@ -16,13 +16,13 @@ int main(int argc, char **argv)
 {
     t_stack *stack;
 
-    stack = parser(argc, argv); // transforma argv em uma pilha, OK mas talvez não.
-    if (is_duplicate(stack)) //checa se há números duplicados
+    stack = parser(argc, argv);
+    if (!stack || is_duplicate(stack)) //checa se há números duplicados
     {
         free_stack(&stack); // liberar memória pra não dar merda no valgrind depois, OK
         error_exit(); // mensagem de erro, OK
     }
-    solve(&stack); // roda o algoritmo se os número não tiverem em ordem crescente ***
+    solve(&stack);
     free_stack(&stack); // tem que liberar, né, OK
     return (0);
 }

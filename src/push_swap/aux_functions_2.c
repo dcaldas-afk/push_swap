@@ -73,8 +73,8 @@ int	return_smallest(t_stack *stack_x)
 	return (min);
 }
 
-void	error_exit()
+void	error_exit(void)
 {
-	ft_putstr("Invalid input.\n");
-	exit (1);
+	ft_putstr("Error\n");
+	exit(1);
 }
