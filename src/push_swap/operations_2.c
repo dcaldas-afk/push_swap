@@ -3,39 +3,56 @@
 /*                                                        :::      ::::::::   */
 /*   operations_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
+/*   By: dcaldas- <dcaldas-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:41:27 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 16:03:36 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/26 23:40:33 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
 
-void rra(t_stack **stack_a, int len)
+void	ra(t_stack **stack_a, int len)
 {
-    t_stack *tmp; 
-    
-    tmp = *stack_a;
-    change_last_value(stack_a, tmp, NULL);
-    if (len == 0)
-        write(1, "rra\n", 4);
+	t_stack	*tmp;
+
+	tmp = *stack_a;
+	*stack_a = last_element(*stack_a);
+	(*stack_a)->next = tmp;
+	*stack_a = tmp->next;
+	tmp->next = NULL;
+	if (len == 0)
+		write(1, "ra\n", 3);
 }
 
-void rrb(t_stack **stack_b, int len)
+void	rb(t_stack **stack_b, int len)
 {
-    t_stack *tmp; 
-    
-    tmp = *stack_b;
-    change_last_value(stack_b, tmp, NULL);
-    if (len == 0)
-        write(1, "rba\n", 4);
+	t_stack	*tmp;
+
+	tmp = *stack_b;
+	*stack_b = last_element(*stack_b);
+	(*stack_b)->next = tmp;
+	*stack_b = tmp->next;
+	tmp->next = NULL;
+	if (len == 0)
+		write(1, "rb\n", 3);
 }
 
-void    rrr(t_stack **stack_a, t_stack **stack_b, int len)
+void	rr(t_stack **stack_a, t_stack **stack_b, int len)
 {
-    rra(stack_a, 0);
-    rrb(stack_b, 0);
-    if (len == 0)
-        write(1, "rrr\n", 4);
+	t_stack	*tmp_a;
+	t_stack	*tmp_b;
+
+	tmp_a = *stack_a;
+	tmp_b = *stack_b;
+	*stack_a = last_element(*stack_a);
+	(*stack_a)->next = tmp_a;
+	*stack_a = tmp_a->next;
+	tmp_a->next = NULL;
+	*stack_b = last_element(*stack_b);
+	(*stack_b)->next = tmp_b;
+	*stack_b = tmp_b->next;
+	tmp_b->next = NULL;
+	if (len == 0)
+		write(1, "rr\n", 3);
 }

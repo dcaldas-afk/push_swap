@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
+/*   By: dcaldas- <dcaldas-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:31:03 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 16:01:34 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/31 01:24:27 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,4 @@ t_stack	*last_element(t_stack *stack_x)
 	while (stack_x->next)
 		stack_x = stack_x->next;
 	return (stack_x);
-}
-
-void	print_stack(t_stack *stack_x)
-{
-	while (stack_x)
-	{
-		printf("%d ", stack_x->n);
-		stack_x = stack_x->next;
-	}
-	printf("\n");
 }

@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcaldas- <dcaldas-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 03:11:47 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/29 21:35:33 by dcaldas-         ###   ########.fr       */
+/*   Created: 2024/01/29 23:19:03 by dcaldas-          #+#    #+#             */
+/*   Updated: 2024/01/30 16:46:31 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../lib/push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-int	main(int argc, char **argv)
-{
-	t_stack	*stack;
+void	ko_exit(void);
+void	ok_exit(void);
+void	checker(t_stack **stack_a);
+t_stack	*checker_parser(int argc, char **argv);
 
-	stack = parser(argc, argv);
-	if (!stack || is_duplicate(stack))
-	{
-		free_stack(&stack);
-		error_exit();
-	}
-	if (is_sorted(stack))
-		exit(1);
-	solve(&stack);
-	free_stack(&stack);
-	return (0);
-}
+#endif

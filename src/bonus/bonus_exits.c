@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bonus_exits.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcaldas- <dcaldas-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 03:11:47 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/29 21:35:33 by dcaldas-         ###   ########.fr       */
+/*   Created: 2024/01/30 00:15:08 by dcaldas-          #+#    #+#             */
+/*   Updated: 2024/01/30 16:43:28 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
+#include "../../lib/checker.h"
 
-int	main(int argc, char **argv)
+void	ko_exit(void)
 {
-	t_stack	*stack;
+	write(2, "KO\n", 3);
+	exit(1);
+}
 
-	stack = parser(argc, argv);
-	if (!stack || is_duplicate(stack))
-	{
-		free_stack(&stack);
-		error_exit();
-	}
-	if (is_sorted(stack))
-		exit(1);
-	solve(&stack);
-	free_stack(&stack);
-	return (0);
+void	ok_exit(void)
+{
+	write(1, "OK\n", 3);
+	exit(1);
 }

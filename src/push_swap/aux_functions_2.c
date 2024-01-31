@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   aux_functions_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dcaldas- <dcaldas-@student.42porto.com     +#+  +:+       +#+        */
+/*   By: dcaldas- <dcaldas-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:01:58 by dcaldas-          #+#    #+#             */
-/*   Updated: 2024/01/12 16:01:31 by dcaldas-         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:55:53 by dcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/push_swap.h"
 
-void    change_last_value(t_stack **stack_x, t_stack *tmp, void *value)
+void	change_last_value(t_stack **stack_x, t_stack *tmp, void *value)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    tmp = *stack_x;
-    while ((*stack_x)->next)
-    {
-        i++;
-        *stack_x = (*stack_x)->next;
-    }
-    (*stack_x)->next = tmp;
-    while (i > 1)
-    {
-        i--;
-        tmp = tmp->next;
-    }
-    tmp->next = value;
+	i = 0;
+	tmp = *stack_x;
+	while ((*stack_x)->next)
+	{
+		i++;
+		*stack_x = (*stack_x)->next;
+	}
+	(*stack_x)->next = tmp;
+	while (i > 1)
+	{
+		i--;
+		tmp = tmp->next;
+	}
+	tmp->next = value;
 }
 
 int	stack_size(t_stack *stack_x)
@@ -75,6 +75,6 @@ int	return_smallest(t_stack *stack_x)
 
 void	error_exit(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
